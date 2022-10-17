@@ -15,10 +15,32 @@ class BinarySearchTree {
     // remove line with error and write your code here
   }
 
-  add(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
-  }
+  add(data) {
+    // throw new NotImplementedError('Not implemented');
+    // remove line with error and write your code here    
+      let newNode = new Node(data);
+      if(this.root) {
+        this.root = newNode;
+        return;
+      }
+
+      let currNode = this.root;
+      while(currNode) {
+        if(newNode.value < currNode.value) {
+          if(!currNode.left) {
+            currNode.left = newNode;
+            return;
+          }
+          currNode = currNode.left;
+        } else {
+          if(!currNode.right) {
+            currNode.right = newNode;
+            return;
+          }
+          currNode = currNode.right;
+        }
+      }      
+    }
 
   has(/* data */) {
     throw new NotImplementedError('Not implemented');
